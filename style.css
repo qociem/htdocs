@@ -1,0 +1,229 @@
+/* ===== style.css (final) ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 12px;
+}
+
+h1 {
+  margin: 12px 0 18px 0;
+  font-size: 1.6rem;
+}
+
+/* ===== Layout utama: dua kolom tetap ===== */
+.app {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  min-height: 80vh;
+  height: calc(100vh - 120px);
+}
+
+/* ===== Panel kiri (Produk) ===== */
+.left {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Header kiri tetap (freeze) */
+.left-header {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Form project (hidden by default) */
+.form-box {
+  border: 1px dashed #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: none;
+}
+
+/* List products scrollable */
+.left-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 6px;
+}
+
+/* Produk item */
+.project-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-item .meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.project-item.active {
+  background: #eef6ff;
+  border-left: 4px solid #3498db;
+}
+
+/* ===== Panel kanan (Catatan) ===== */
+.right {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Header kanan tetap (freeze) */
+.right-header {
+  flex: 0 0 auto;
+}
+
+/* Content kanan scrollable */
+.right-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0; /* penting agar scroll bekerja di flex container */
+  padding-right: 6px;
+}
+
+/* ===== Form controls ===== */
+.input,
+.textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn.primary {
+  background: #3498db;
+  color: white;
+}
+
+.btn.danger {
+  background: #e74c3c;
+  color: white;
+}
+
+.file-row input[type="file"] {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+/* ===== Catatan card ===== */
+.note-card {
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+
+  /* Jaga agar enter / baris baru di textarea tampil sesuai input */
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+.note-card .small {
+  display: block;
+  margin-top: 6px;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.note-card img,
+.note-card video {
+  margin-top: 8px;
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+/* ===== Misc ===== */
+.small {
+  font-size: 0.85em;
+  color: #666;
+}
+
+/* Empty placeholder when no notes */
+.empty-placeholder {
+  text-align: center;
+  margin-top: 40px;
+  color: #888;
+}
+
+/* Logout link (top-right) */
+.logout-link {
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  font-size: 0.9rem;
+}
+.logout-link:hover {
+  background: #fafafa;
+  transform: translateY(-1px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .logout-link {
+    right: 10px;
+    top: 10px;
+    padding: 6px 8px;
+  }
+}
